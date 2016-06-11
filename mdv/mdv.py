@@ -102,7 +102,7 @@ import markdown.util
 from markdown.util import etree
 from markdown.extensions.tables import TableExtension
 from random import randint
-from .tabulate import tabulate
+from tabulate import tabulate
 from json import loads
 from markdown.treeprocessors import Treeprocessor
 from markdown.extensions import Extension, fenced_code
@@ -231,7 +231,7 @@ hr_marker            = '\x15'
 def j(p, f):
     return os.path.join(p, f)
 
-mydir = os.path.abspath(__file__).rsplit('/', 1)[0]
+mydir = os.path.abspath(__file__).rsplit('\\', 1)[0]
 
 def set_theme(theme=None, for_code=None):
     """ set md and code theme """
@@ -1023,7 +1023,7 @@ def run_args(args):
 def run():
     is_app = 1
     # Make Py2 > Py3:
-    reload(sys); sys.setdefaultencoding('utf-8')
+    
     # no? see http://stackoverflow.com/a/29832646/4583360 ...
     args = docopt(__doc__, version='mdv v0.1')
     args = merge(args, load_yaml_config())
